@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
  */
 public class Test {
 	public static LocalDateTime timePoint = LocalDateTime.now();  
-	//testtesttestdddddddddsdsd
+	//testtesttestdddddddddsdsds
 		public static void main(String[] args){
 			GregorianCalendar cc = new GregorianCalendar();
 			System.out.println("Hello World");
