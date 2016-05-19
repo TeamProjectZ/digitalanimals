@@ -1,5 +1,5 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.GregorianCalendar;
 
 /** 
  * Project: DigitalAnimals
@@ -12,8 +12,14 @@ import java.util.Set;
  *
  */
 public class Test {
-
+	public static LocalDateTime timePoint = LocalDateTime.now();  
+	//testtesttestdddddddddsdsds
 		public static void main(String[] args){
+			GregorianCalendar cc = new GregorianCalendar();
 			System.out.println("Hello World");
+			System.out.println(timePoint);
+//			cc.setGregorianChange(date);
+//			System.out.println(cc.isSet());
+			
 		}
 }
