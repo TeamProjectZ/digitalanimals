@@ -16,7 +16,7 @@ public class FoodFactory {
 		return (instance = instance == null ? new FoodFactory() : instance);
 	}
 
-	public Food getAnimal(FoodEnum foodEnum) {
+	public Food getFood(FoodEnum foodEnum) {
 		Food food = null;
 		switch (foodEnum) {
 			case CHICKEN:
