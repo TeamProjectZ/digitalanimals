@@ -52,7 +52,7 @@ public abstract class Animal implements AnimalVital {
 	}
 
 	/** Setter */
-	protected void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -67,7 +67,7 @@ public abstract class Animal implements AnimalVital {
 	}
 
 	/** Setter */
-	protected void setNick(String nick) {
+	public void setNick(String nick) {
 		this.nick = nick;
 	}
 
