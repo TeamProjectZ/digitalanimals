@@ -134,7 +134,7 @@ public abstract class AbstractJDBCDao<T extends Identified<PK>, PK extends Integ
     }
 
     @Override
-    public void update(T object) throws PersistException {
+    public void update(T object) throws PersistException  {
         // Сохраняем зависимости
         saveDependences(object);
 
