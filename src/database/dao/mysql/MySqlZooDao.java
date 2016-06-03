@@ -3,7 +3,6 @@ package database.dao.mysql;
 import database.dao.AbstractJDBCDao;
 import database.dao.DaoFactory;
 import database.dao.PersistException;
-import database.dao.entity.JoinClazz;
 import database.dao.entity.User;
 import database.dao.entity.Zoo;
 
@@ -52,10 +51,6 @@ public class MySqlZooDao extends AbstractJDBCDao<Zoo, Integer>{
         return "INSERT INTO project_z.zoo (name, cash, last_activity, user_id) VALUES(?,?,?,?)";
     }
 
-    public String getSelectJion(){
-        return "SELECT zoo.id, zoo.name, users.login, users.password FROM zoo INNER JOIN users ON zoo.user_id = users.id";
-    }
-
     @Override
     public Zoo create() throws PersistException {
         Zoo zoo = new Zoo();
@@ -81,22 +76,6 @@ public class MySqlZooDao extends AbstractJDBCDao<Zoo, Integer>{
         return result;
     }
 
-    protected List<JoinClazz> parseResultSetJoin(ResultSet rs) throws PersistException {
-        List<JoinClazz> result = new LinkedList<>();
-        try {
-            while (rs.next()) {
-                JoinClazz joinClazz = new JoinClazz();
-                joinClazz.setId(rs.getInt("id"));
-                joinClazz.setName(rs.getString("name"));
-                joinClazz.setLogin(rs.getString("login"));
-                joinClazz.setPassword(rs.getString("password"));
-                result.add(joinClazz);
-            }
-        } catch (Exception e) {
-            throw new PersistException(e);
-        }
-        return result;
-    }
 
     @Override
     protected void prepareStatementForUpdate(PreparedStatement statement, Zoo object) throws PersistException {
@@ -128,19 +107,6 @@ public class MySqlZooDao extends AbstractJDBCDao<Zoo, Integer>{
             throw new PersistException(e);
         }
     }
-
-    public List<JoinClazz> getJionState() throws PersistException {
-        List<JoinClazz> list;
-        String sql = getSelectJion();
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            ResultSet rs = statement.executeQuery();
-            list = parseResultSetJoin(rs);
-        } catch (Exception e) {
-            throw new PersistException(e);
-        }
-        return list;
-    }
-
 
     protected Date convert(java.util.Date date) {
         if (date == null) {

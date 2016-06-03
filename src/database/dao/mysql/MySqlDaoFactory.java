@@ -46,18 +46,6 @@ public class MySqlDaoFactory implements DaoFactory<Connection> {
         }
 
         creators = new HashMap<Class, DaoCreator>();
-        creators.put(Group.class, new DaoCreator<Connection>() {
-            @Override
-            public GenericDao create(Connection connection) {
-                return new MySqlGroupDao(MySqlDaoFactory.this, connection);
-            }
-        });
-        creators.put(Student.class, new DaoCreator<Connection>() {
-            @Override
-            public GenericDao create(Connection connection) {
-                return new MySqlStudentDao(MySqlDaoFactory.this, connection);
-            }
-        });
         creators.put(User.class, new DaoCreator<Connection>() {
             @Override
             public GenericDao create(Connection connection) {
@@ -92,6 +80,12 @@ public class MySqlDaoFactory implements DaoFactory<Connection> {
             @Override
             public GenericDao create(Connection connection) {
                 return new MySqlFoodStoreDao(MySqlDaoFactory.this, connection);
+            }
+        });
+        creators.put(House.class, new DaoCreator<Connection>() {
+            @Override
+            public GenericDao create(Connection connection) {
+                return new MySqlHouseDao(MySqlDaoFactory.this, connection);
             }
         });
 

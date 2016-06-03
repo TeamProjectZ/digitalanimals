@@ -4,8 +4,6 @@ import database.dao.DaoFactory;
 import database.dao.GenericDao;
 import database.dao.Identified;
 import database.dao.PersistException;
-import database.dao.entity.Group;
-import database.dao.entity.Student;
 import database.dao.mysql.MySqlDaoFactory;
 import org.junit.After;
 import org.junit.Before;

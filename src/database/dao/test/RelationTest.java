@@ -2,8 +2,6 @@ package database.dao.test;
 
 import database.dao.DaoFactory;
 import database.dao.PersistException;
-import database.dao.entity.Group;
-import database.dao.entity.Student;
 import database.dao.entity.User;
 import database.dao.entity.Zoo;
 import database.dao.mysql.MySqlDaoFactory;
@@ -15,9 +13,6 @@ import org.junit.Test;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * Created by vladimir on 09.03.14.
- */
 public class RelationTest {
     private static final DaoFactory<Connection> factory = new MySqlDaoFactory();
 
@@ -65,14 +60,14 @@ public class RelationTest {
         Assert.assertNotNull("Group.id is null.", zoo.getUser().getId());
     }
 
-    @Test
-    public void testUpdate() throws PersistException {
-        Student student = (Student) factory.getDao(connection, Student.class).create();
-        student.setGroup(new Group());
-        factory.getDao(connection, Student.class).update(student);
-        Assert.assertNotNull("Group is null.", student.getGroup());
-        Assert.assertNotNull("Group.id is null.", student.getGroup().getId());
-    }
+//    @Test
+//    public void testUpdate() throws PersistException {
+//        Student student = (Student) factory.getDao(connection, Student.class).create();
+//        student.setGroup(new Group());
+//        factory.getDao(connection, Student.class).update(student);
+//        Assert.assertNotNull("Group is null.", student.getGroup());
+//        Assert.assertNotNull("Group.id is null.", student.getGroup().getId());
+//    }
 
     @Test
     public void testUpdateAll() throws PersistException {

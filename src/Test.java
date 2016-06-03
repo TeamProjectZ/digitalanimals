@@ -27,17 +27,19 @@ public class Test {
 
 			try {
 				MySqlDaoFactory factory = new MySqlDaoFactory();
-				MySqlFoodDao foodDao = new MySqlFoodDao(factory, factory.getContext());
-//				MySqlTypeDao typeDao = new MySqlTypeDao(factory, factory.getContext());
-				MySqlFoodStoreDao foodStoreDao = new MySqlFoodStoreDao(factory, factory.getContext());
-				Food food = foodDao.getByPK(3);
+				MySqlHouseDao houseDao = new MySqlHouseDao(factory, factory.getContext());
+				MySqlTypeDao typeDao = new MySqlTypeDao(factory, factory.getContext());
 
-				ConsoleHelpe.writeMessage(food.toString());
-				FoodStore foodStore = foodStoreDao.getByPK(1);
-				foodStore.setValue(100);
-				foodStore.setFood(food);
-				ConsoleHelpe.writeMessage(foodStore.toString());
-				foodStoreDao.update(foodStore);
+				House house = houseDao.create();
+
+				house.setPrice(100);
+				house.setSize(1);
+				house.setType(typeDao.getByPK(10));
+
+				houseDao.update(house);
+				House home = houseDao.getByPK(3);
+
+				houseDao.delete(home);
 
 
 
