@@ -1,3 +1,5 @@
+import command.CommandExecutor;
+import command.Operation;
 import database.dao.PersistException;
 import database.dao.entity.*;
 import database.dao.mysql.*;
@@ -25,28 +27,8 @@ public class Test {
 //			cc.setGregorianChange(date);
 //			System.out.println(cc.isSet());
 
-			try {
-				MySqlDaoFactory factory = new MySqlDaoFactory();
-				MySqlHouseDao houseDao = new MySqlHouseDao(factory, factory.getContext());
-				MySqlTypeDao typeDao = new MySqlTypeDao(factory, factory.getContext());
-
-				House house = houseDao.create();
-
-				house.setPrice(100);
-				house.setSize(1);
-				house.setType(typeDao.getByPK(10));
-
-				houseDao.update(house);
-				House home = houseDao.getByPK(3);
-
-				houseDao.delete(home);
-
-
-
-			} catch (PersistException e) {
-				e.printStackTrace();
-			}
-
+			CommandExecutor.execute(Operation.REGISTER);
 
 		}
+
 }

@@ -24,12 +24,12 @@ public class MySqlDaoTest extends GenericDaoTest<Connection> {
     private static final DaoFactory<Connection> factory = new MySqlDaoFactory();
 
     @Parameterized.Parameters
-    public static Collection getParameters() {
-        return Arrays.asList(new Object[][]{
-                {Group.class, new Group()},
-                {Student.class, new Student()}
-        });
-    }
+//    public static Collection getParameters() {
+//        return Arrays.asList(new Object[][]{
+//                {Group.class, new Group()},
+//                {Student.class, new Student()}
+//        });
+//    }
 
     @Before
     public void setUp() throws PersistException, SQLException {
